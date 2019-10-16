@@ -41,8 +41,12 @@ GAME LOGIC:
 */
 
 
-// ELEMENTS:
+// ELEMENTS & VARIABLES:
 var gameBoardSquares = document.querySelectorAll(".squares");
+var xScoreCounter = document.querySelector(".x-score-counter");
+var oScoreCounter = document.querySelector(".o-score-counter");
+var restartBtn = document.querySelector(".restart-button");
+
 var lastPlayed = [];
 
 // FUNCTIONS
@@ -91,10 +95,10 @@ function checkForWinner() {
   
     if (winningCombinations[key].every((element) => element == "x")) {
       console.log("X wins");
-      // playAgain()
+      addPointToX();
     } else if (winningCombinations[key].every((element) => element == "o")) {
       console.log("O wins");
-      // playAgain()
+      addPointToO();
     }  
   });
 }
@@ -105,16 +109,38 @@ function checkForDraw() {
 
   if (boardSquares.every((square) => square.textContent != "")) {
     console.log("It's a draw!")
-    // playAgain();
+    // addScoreToDraw;
   }
 }
 
-// score containers: 2 * stacked divs left & right
-// reset button underneath main board
-
-function reset() {
-
+function resetBoard() {
+  gameBoardSquares.forEach((square) => square.textContent = "");
 }
+
+
+
+function addPointToX() {
+  xScoreCounter.textContent = Number(xScoreCounter.textContent) + 1;
+}
+
+function addPointToO() {
+  oScoreCounter.textContent = Number(oScoreCounter.textContent) + 1;
+}
+
+
+// EVENT LISTENERS:
+gameBoardSquares.forEach((square) => addEventListener("click", playHandler));
+restartBtn.addEventListener("click", resetBoard);
+
+// score counter
+// counter for x & o.
+// get elements
+// function: in checkForWinner, if x wins add 1 to x. if o wins add 1 to o
+
+
+// reset button underneath main board
+// Winning message
+
 
 /*
 function playAgain() {
@@ -133,8 +159,7 @@ function selectFirstPlayer() {
 selectFirstPlayer();
 */
 
-// EVENT LISTENERS:
-gameBoardSquares.forEach((square) => addEventListener("click", playHandler));
+
 
 
 
@@ -147,3 +172,5 @@ gameBoardSquares.forEach((square) => addEventListener("click", playHandler));
 // PROBLEMS:
 // 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen - Problem disappeared?!
 // 2. Playhandler function - First click produces o, not x when if condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
+// 3. At the beginning of a new game, if lastPlayer[0] was x, next player is o. Could have resetGame also reset lastPlayed array to []
+// 4. 
