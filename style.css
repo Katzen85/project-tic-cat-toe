@@ -6,6 +6,16 @@ body {
   justify-content: space-evenly;
 }
 
+/* WIN MESSAGE */
+.win-message {
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 2;
+  font-size: 50px;
+}
+
 
 /* GAME BOARD */
 .board-and-score-counters {
@@ -31,6 +41,7 @@ body {
   border: 1px solid black;
   text-align: center;
   line-height: 6;
+  cursor: pointer;
 }
 
 
@@ -62,21 +73,3 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-/*
-NOTES:
-
-PROBLEMS:
-19. Squares - When adding content to a square, the height was changing until content had been added to squares on each row. The current fix is height set to 33.3333333%.
-
-flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
-
-
-*/
