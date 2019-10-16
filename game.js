@@ -47,8 +47,8 @@ function playHandler(event) {
   } else {
     placeO();
   }
-  checkForWinner();
   checkForDraw();
+  checkForWinner();
 }
 
 function placeX() {
@@ -87,20 +87,20 @@ function checkForWinner() {
     if (winningCombinations[key].every((element) => element == "x")) {
       displayXWins();
       addPointToX();
-      removeEventListenersForSquares();
+      removeEventListenersFromSquares();
     } else if (winningCombinations[key].every((element) => element == "o")) {
       displayOWins();
       addPointToO();
-      removeEventListenersForSquares();
+      removeEventListenersFromSquares();
     }  
   });
 }
 
-function removeEventListenersForSquares() {
+function removeEventListenersFromSquares() {
   gameBoardSquares.forEach((square) => square.removeEventListener("click", playHandler));
 }
 
-function addEventListenersForSquares() {
+function addEventListenersToSquares() {
   gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
 }
 
@@ -137,9 +137,9 @@ function displayOWins() {
 }
 
 // EVENT LISTENERS:
-// gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
+addEventListenersToSquares();
 restartBtn.addEventListener("click", resetGame);
-addEventListenersForSquares();
+
 
 // EXTRA FEATURES:
 // Draw counter
@@ -158,11 +158,12 @@ addEventListenersForSquares();
 
 // PROBLEMS:
 // JAVASCRIPT:
-// 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen
-// 2. Playhandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
-// 3. At the beginning of a new game, if lastPlayer[0] was x, next player is o. Could have resetGame also reset lastPlayed array to []
-// 4. after winner is declared, further clicks still increment the score counter(s) and adds pieces to board - Cancel event handle to combat this - solved this by removing event listeners and then re-adding with restart button
-
+// Fixed 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen
+// Fixed 2. Playhandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
+// Fixed 3. At the beginning of a new game, if lastPlayer[0] was x, next player is o. Could have resetGame also reset lastPlayed array to []
+// Fixed 4. after winner is declared, further clicks still increment the score counter(s) and adds pieces to board - Cancel event handle to combat this - solved this by removing event listeners and then re-adding with restart button
+// 5. On draw after reset part way through a game, x score increments by 1. This does not seem to happen for o.
+// 6. If there is a win on final play, counter ticks over, but message displayed is "Draw!"
 
 // CSS
 // .squares - When adding content to a square, the height was changing until content had been added to squares on each row. The current fix is height set to 33.3333333%.
