@@ -1,11 +1,19 @@
 body {
-  font-family: Cinzel;
-  font-weight: 900;
   height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+
+/* GAME BOARD */
+.board-and-score-counters {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .game-board {
@@ -24,6 +32,43 @@ body {
   text-align: center;
   line-height: 6;
 }
+
+
+/* SCORE COUNTERS */
+.score-containers {
+  border: 10px solid black;
+  width: 50px;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.score-counter {
+  border: 1px solid black;
+  height: 50%;
+  flex-grow: 1;
+  font-size: 40px;
+}
+
+
+/* RESTART BUTTON */
+
+.restart-button {
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
 
 /*
 NOTES:
