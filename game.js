@@ -26,7 +26,7 @@ Complete - Keep track of multiple game rounds with a win counter
 ** If winner or if all squares are "full" game asks player to reset
 
 BRAINSTORM:
- Data, presentation, markup, style, DOM manipulation
+ Data, presentation, style,
 */
 
 
@@ -36,7 +36,6 @@ var xScoreCounter = document.querySelector(".x-score-counter");
 var oScoreCounter = document.querySelector(".o-score-counter");
 var restartBtn = document.querySelector(".restart-button");
 var winMessage = document.querySelector(".win-message");
-
 var lastPlayed = [];
 
 // FUNCTIONS
@@ -46,13 +45,14 @@ function playHandler(event) {
     placeX();
 
   } else {
-   placeO();
+    placeO();
   }
   checkForWinner();
   checkForDraw();
 }
 
 function placeX() {
+
   if (event.target.textContent == "") {
     event.target.textContent = "x";
     lastPlayed.unshift("x");
@@ -60,6 +60,7 @@ function placeX() {
 }
 
 function placeO() {
+
   if (event.target.textContent == "") {
     event.target.textContent = "o";
     lastPlayed.unshift("o");
@@ -86,11 +87,21 @@ function checkForWinner() {
     if (winningCombinations[key].every((element) => element == "x")) {
       displayXWins();
       addPointToX();
+      removeEventListenersForSquares();
     } else if (winningCombinations[key].every((element) => element == "o")) {
       displayOWins();
       addPointToO();
+      removeEventListenersForSquares();
     }  
   });
+}
+
+function removeEventListenersForSquares() {
+  gameBoardSquares.forEach((square) => square.removeEventListener("click", playHandler));
+}
+
+function addEventListenersForSquares() {
+  gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
 }
 
 function checkForDraw() {
@@ -106,6 +117,7 @@ function resetGame(event) {
   gameBoardSquares.forEach((square) => square.textContent = "");
   winMessage.textContent = "";
   lastPlayed = [];
+  gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
 }
 
 function addPointToX() {
@@ -125,18 +137,17 @@ function displayOWins() {
 }
 
 // EVENT LISTENERS:
-gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
+// gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
 restartBtn.addEventListener("click", resetGame);
-
-
+addEventListenersForSquares();
 
 // EXTRA FEATURES:
 // Draw counter
 // Illuminate background of winning squares
-// Play 1 or 2 player
-// Select 1st player (x or o)
+// highlight background of hover squares
+// Play 1 (against computer) or 2 player
 // Full game restart (home menu?)
-
+// Watch computer play itself...
 
 
 // NOTES:
@@ -147,15 +158,16 @@ restartBtn.addEventListener("click", resetGame);
 
 // PROBLEMS:
 // JAVASCRIPT:
-// 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen - Problem disappeared?!
-// 2. Playhandler function - First click produces o, not x when if condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
+// 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen
+// 2. Playhandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
 // 3. At the beginning of a new game, if lastPlayer[0] was x, next player is o. Could have resetGame also reset lastPlayed array to []
-// 4. after winner is declared, further clicks still increment the score counter(s)
+// 4. after winner is declared, further clicks still increment the score counter(s) and adds pieces to board - Cancel event handle to combat this - solved this by removing event listeners and then re-adding with restart button
 
 
 // CSS
 // .squares - When adding content to a square, the height was changing until content had been added to squares on each row. The current fix is height set to 33.3333333%.
 // flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
+
 
 // LESSONS:
 // addEventListener needs to be applied TO a node. Eg: resetBtn.AddEventListener("eventToListenFor", functionToRun);
