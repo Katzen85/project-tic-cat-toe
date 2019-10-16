@@ -1,0 +1,37 @@
+body {
+  font-family: Cinzel;
+  font-weight: 900;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board {
+  width: 300px;
+  height: 300px;
+  border: 10px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.squares {
+  flex-grow: 1;
+  flex-basis: 30%;
+  height: 33.33333333%;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 6;
+}
+
+/*
+NOTES:
+
+PROBLEMS:
+19. Squares - When adding content to a square, the height was changing until content had been added to squares on each row. The current fix is height set to 33.3333333%.
+
+flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
+
+
+*/
