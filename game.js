@@ -45,6 +45,7 @@ var lastPlayed = [];
 var gameActive = true;
 var stopTimerID;
 
+
 // FUNCTIONS
 function onePlayerEventHandler(event) {
   
@@ -76,9 +77,31 @@ function computerPlayerO() {
   if (gameActive) {
     if (gameBoardSquares[randomNum].textContent == "") {
       gameBoardSquares[randomNum].textContent = "o";
+      lastPlayed.unshift("o");
     } else {
       computerPlayerO();
     }
+  }
+}
+
+function computerPlayerX() {
+  var randomNum = Math.floor(Math.random() * 9);
+
+  if (gameActive) {
+    if (gameBoardSquares[randomNum].textContent == "") {
+      gameBoardSquares[randomNum].textContent = "x";
+      lastPlayed.unshift("x");
+    } else {
+      computerPlayerX();
+    }
+  }
+}
+
+function computerVsComputer() {
+  
+  if (gameActive) {
+    setInterval(computerPlayerX, 1000);
+    setInterval(computerPlayerO, 2000);
   }
 }
 
@@ -189,23 +212,16 @@ twoPlayerBtn.addEventListener("click", addTwoPlayerEventListeners);
 restartBtn.addEventListener("click", resetGame);
 
 
+// FUNCTION CALLS:
+// computerVsComputer();
+
+
 // EXTRA FEATURES:
 
 // "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
 // Watch computer play itself... during tic tac toe screen
 
-function computerVsComputer() {
-  
-  var randomNum = Math.floor(Math.random() * 9);
 
-  if (!gameActive) {
-    if (gameBoardSquares[randomNum].textContent == "") {
-      gameBoardSquares[randomNum].textContent = "o";
-    } else {
-      computerPlayerO();
-    }
-  }
-}
 
 
 
