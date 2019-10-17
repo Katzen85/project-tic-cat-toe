@@ -1,5 +1,7 @@
 **TIC TAC TOE**
 
+Click here to play: https://katzen85.github.io/project-tic-cat-toe/
+
 1. How to Play
 2. Development
 3. Problems
