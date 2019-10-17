@@ -37,17 +37,20 @@ var oScoreCounter = document.querySelector(".o-score-counter");
 var restartBtn = document.querySelector(".restart-button");
 var onePlayerBtn = document.querySelector(".one-player");
 var twoPlayerBtn = document.querySelector(".two-player");
-var winMessage = document.querySelector(".win-message");
+var ticBox = document.querySelector(".tic");
+var tacBox = document.querySelector(".tac");
+var toeBox = document.querySelector(".toe");
+var winMessage = document.querySelector(".tac");
 var lastPlayed = [];
 var gameActive = true;
-
+var stopTimerID;
 
 // FUNCTIONS
 function onePlayerEventHandler(event) {
   
   if (gameActive) {
     placeX();
-    setTimeout(computerPlayer, 1000);
+    setTimeout(computerPlayerO, 1000);
     checkForDraw();
     checkForWinner();
   }
@@ -67,15 +70,14 @@ function twoPlayerEventHandler(event) {
   }  
 }
 
-function computerPlayer() {
-
+function computerPlayerO() {
   var randomNum = Math.floor(Math.random() * 9);
 
   if (gameActive) {
     if (gameBoardSquares[randomNum].textContent == "") {
       gameBoardSquares[randomNum].textContent = "o";
     } else {
-      computerPlayer();
+      computerPlayerO();
     }
   }
 }
@@ -128,11 +130,15 @@ function checkForWinner() {
 function addTwoPlayerEventListeners() {
   gameBoardSquares.forEach((square) => square.removeEventListener("click", onePlayerEventHandler))
   gameBoardSquares.forEach((square) => square.addEventListener("click", twoPlayerEventHandler));
+  xScoreCounter.textContent = 0;
+  oScoreCounter.textContent = 0;
 }
 
 function addOnePlayerEventListeners() {
   gameBoardSquares.forEach((square) => square.removeEventListener("click", twoPlayerEventHandler));
   gameBoardSquares.forEach((square) => square.addEventListener("click", onePlayerEventHandler));
+  xScoreCounter.textContent = 0;
+  oScoreCounter.textContent = 0;
 }
 
 function checkForDraw() {
@@ -177,7 +183,6 @@ function removeFlashAnimation() {
 }
 
 
-
 // EVENT LISTENERS:
 onePlayerBtn.addEventListener("click", addOnePlayerEventListeners);
 twoPlayerBtn.addEventListener("click", addTwoPlayerEventListeners);
@@ -188,6 +193,23 @@ restartBtn.addEventListener("click", resetGame);
 
 // "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
 // Watch computer play itself... during tic tac toe screen
+
+function computerVsComputer() {
+  
+  var randomNum = Math.floor(Math.random() * 9);
+
+  if (!gameActive) {
+    if (gameBoardSquares[randomNum].textContent == "") {
+      gameBoardSquares[randomNum].textContent = "o";
+    } else {
+      computerPlayerO();
+    }
+  }
+}
+
+
+
+
 
 // Illuminate background of winning squares
 // Options menu

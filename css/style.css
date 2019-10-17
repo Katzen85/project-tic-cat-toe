@@ -10,7 +10,8 @@ body {
   justify-content: space-evenly;
 }
 
-/* WIN MESSAGE */
+
+/* INTRO-MESSAGE & WIN MESSAGE */
 .win-message {
   font-family: Teko;
   width: 100%;
@@ -20,6 +21,20 @@ body {
   font-size: 100px;
   font-weight: 300;
   letter-spacing: 6px;
+  display: flex;
+}
+
+.intro-message {
+  height: 100px;
+  flex-grow: 1;
+}
+
+.tic {
+  text-align: right;
+}
+
+.toe {
+  text-align: left;
 }
 
 
@@ -85,19 +100,20 @@ body {
 
 
 /* BUTTONS */
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 button {
   border: none;
   font-family: Teko;
-  width: 150px;
+  width: 300px;
   height: 50px;
   font-size: 40px;
   letter-spacing: 3px;
   cursor: pointer;
-}
-
-.one-player, .two-player {
-  width: 300px;
-  font-size: 40px;
 }
 
 
@@ -133,11 +149,19 @@ button {
 
 /* PSEUDO CLASSES */
 
+.text-blue:hover {
+color: #fbd109;
+}
+
 .squares:hover {
   background-color: #354a7f;
 }
 
+.background-blue:hover {
+  background-color: #fbd109;
+  color: #354a7f;
+}
+
 button:hover {
   color: #e01616;
-
 }
