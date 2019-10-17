@@ -36,7 +36,7 @@ aiii: Pseudo-code: I then started writing the pseudo code for the game logic. I 
 
 aiv. Writing The Game Logic: This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
 
-av. Styling: I completed the styling as a secondary item, knowing that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). 
+av. Styling: I completed the styling as a secondary item, suspecting that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). Follow the link to learn more: https://en.wikipedia.org/wiki/Piet_Mondrian
 
 
 3. PROBLEMS:
