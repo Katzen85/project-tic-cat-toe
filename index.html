@@ -16,8 +16,8 @@
 
   <div class="board-and-score-counters">
     <div class="score-containers">
-      <div class="score-counter-box score-counter-header background-blue text-white">X</div>
-      <div class="score-counter-box x-score-counter background-yellow">0</div>
+      <div class="score-counter-header background-blue text-white">X</div>
+      <div class="score-counter-box x-score-counter background-yellow animated">0</div>
     </div>
     
     <div class="game-board">
@@ -33,13 +33,16 @@
     </div>
 
     <div class="score-containers">
-      <div class="score-counter-box score-counter-header background-red text-white">O</div>
-      <div class="score-counter-box o-score-counter animated flip">0</div>
+      <div class=" score-counter-header background-red text-white">O</div>
+      <div class="score-counter-box o-score-counter animated">0</div>
     </div>
   </div>
 
-  <button class="restart-button">Restart</button>
-
+  <div class="buttons">
+    <button class="one-player">One Player</button>
+    <button class="restart-button">Restart</button>
+    <button class="two-player">Two Player</button>
+  </div>  
   <script src="game.js"></script>
 </body>
 </html>

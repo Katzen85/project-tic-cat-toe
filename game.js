@@ -35,20 +35,49 @@ var gameBoardSquares = document.querySelectorAll(".squares");
 var xScoreCounter = document.querySelector(".x-score-counter");
 var oScoreCounter = document.querySelector(".o-score-counter");
 var restartBtn = document.querySelector(".restart-button");
+var onePlayerBtn = document.querySelector(".one-player");
+var twoPlayerBtn = document.querySelector(".two-player");
 var winMessage = document.querySelector(".win-message");
 var lastPlayed = [];
+var gameActive = true;
+
 
 // FUNCTIONS
-function playHandler(event) {
-
-  if (lastPlayed[0] == undefined || lastPlayed[0] == "o") { 
+function onePlayerEventHandler(event) {
+  
+  if (gameActive) {
     placeX();
-
-  } else {
-    placeO();
+    setTimeout(computerPlayer, 1000);
+    checkForDraw();
+    checkForWinner();
   }
-  checkForDraw();
-  checkForWinner();
+}
+
+function twoPlayerEventHandler(event) {
+
+  if (gameActive) {
+    if (lastPlayed[0] == undefined || lastPlayed[0] == "o") { 
+      placeX();
+
+    } else {
+      placeO();
+    }
+    checkForDraw();
+    checkForWinner();
+  }  
+}
+
+function computerPlayer() {
+
+  var randomNum = Math.floor(Math.random() * 9);
+
+  if (gameActive) {
+    if (gameBoardSquares[randomNum].textContent == "") {
+      gameBoardSquares[randomNum].textContent = "o";
+    } else {
+      computerPlayer();
+    }
+  }
 }
 
 function placeX() {
@@ -68,7 +97,7 @@ function placeO() {
 }
 
 function checkForWinner() {
-  
+
   var winningCombinations = {
     rowTop: [gameBoardSquares[0].textContent, gameBoardSquares[1].textContent, gameBoardSquares[2].textContent],
     rowMiddle: [gameBoardSquares[3].textContent, gameBoardSquares[4].textContent, gameBoardSquares[5].textContent],
@@ -81,44 +110,44 @@ function checkForWinner() {
   }
 
   var winningCombinationKeys = Object.keys(winningCombinations);
-  
+
   winningCombinationKeys.forEach((key) => {
-  
     if (winningCombinations[key].every((element) => element == "x")) {
       displayXWins();
       addPointToX();
-      removeEventListenersFromSquares();
+      gameActive = false;
+
     } else if (winningCombinations[key].every((element) => element == "o")) {
       displayOWins();
       addPointToO();
-      removeEventListenersFromSquares();
+      gameActive = false;
     }  
   });
 }
 
-function removeEventListenersFromSquares() {
-  gameBoardSquares.forEach((square) => square.removeEventListener("click", playHandler));
+function addTwoPlayerEventListeners() {
+  gameBoardSquares.forEach((square) => square.removeEventListener("click", onePlayerEventHandler))
+  gameBoardSquares.forEach((square) => square.addEventListener("click", twoPlayerEventHandler));
 }
 
-function addEventListenersToSquares() {
-  gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
+function addOnePlayerEventListeners() {
+  gameBoardSquares.forEach((square) => square.removeEventListener("click", twoPlayerEventHandler));
+  gameBoardSquares.forEach((square) => square.addEventListener("click", onePlayerEventHandler));
 }
 
 function checkForDraw() {
-
   var boardSquares = Array.from(gameBoardSquares);
-
   if (boardSquares.every((square) => square.textContent != "")) {
     winMessage.textContent = "It's a Draw!"
   }
 }
 
-function resetGame(event) {
+function resetGame() {
   gameBoardSquares.forEach((square) => square.textContent = "");
   winMessage.textContent = "";
   removeFlashAnimation();
   lastPlayed = [];
-  gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
+  gameActive = true;
 }
 
 function addPointToX() {
@@ -147,22 +176,26 @@ function removeFlashAnimation() {
   winMessage.classList.remove("flash");
 }
 
+
+
 // EVENT LISTENERS:
-addEventListenersToSquares();
+onePlayerBtn.addEventListener("click", addOnePlayerEventListeners);
+twoPlayerBtn.addEventListener("click", addTwoPlayerEventListeners);
 restartBtn.addEventListener("click", resetGame);
 
 
 // EXTRA FEATURES:
 
+// "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
+// Watch computer play itself... during tic tac toe screen
+
 // Illuminate background of winning squares
-// "Intro" - Tic Tac Toe flashes across top of screen
-// Restart button is start button
-// Play 1 (against computer) or 2 player
+// Options menu
 
 
 // Allow game customizable options, time limits, board size, game rounds, name & profiles etc  
 // Full game restart (home menu?)
-// Watch computer play itself...
+
 // CSS animation
 // Piet Mondrian cat
 // Local/session storage
@@ -170,19 +203,17 @@ restartBtn.addEventListener("click", resetGame);
 
 
 // NOTES:
-// ITEMS FOR CLARIFICATION:
-// Adding console log test to the above produces 9 logs each time a single square is clicked. 
-// When calling a function with the event passed to it only logs once for each square.
 
 
 // PROBLEMS:
 // JAVASCRIPT:
 // Fixed 1. Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen
-// Fixed 2. Playhandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
+// Fixed 2. twoPlayerEventHandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
 // Fixed 3. At the beginning of a new game, if lastPlayer[0] was x, next player is o. Could have resetGame also reset lastPlayed array to []
 // Fixed 4. after winner is declared, further clicks still increment the score counter(s) and adds pieces to board - Cancel event handle to combat this - solved this by removing event listeners and then re-adding with restart button
-// 5. On draw after reset part way through a game, x score increments by 1. This does not seem to happen for o.
-// 6. If there is a win on final play, counter ticks over, but message displayed is "Draw!"
+// Fixed 5. On draw after reset part way through a game, x score increments by 1. This does not seem to happen for o.
+// Fixed 6. If there is a win on final play, counter ticks over, but message displayed is "Draw!"
+// 7. One player - Win message does not diaplay if computer wins. This seems to be a delay issue.
 
 
 // CSS
@@ -197,3 +228,5 @@ restartBtn.addEventListener("click", resetGame);
 
 // STYLE NOTES:
 // Inspired by the work of Piet Mondrian - Dutch, Neoplasticist artist.
+
+
