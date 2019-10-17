@@ -116,6 +116,7 @@ function checkForDraw() {
 function resetGame(event) {
   gameBoardSquares.forEach((square) => square.textContent = "");
   winMessage.textContent = "";
+  removeFlashAnimation();
   lastPlayed = [];
   gameBoardSquares.forEach((square) => square.addEventListener("click", playHandler));
 }
@@ -126,6 +127,7 @@ function addPointToX() {
 
 function displayXWins() {
   winMessage.textContent = "X Wins!";
+  addFlashAnimation();
 }
 
 function addPointToO() {
@@ -134,6 +136,15 @@ function addPointToO() {
 
 function displayOWins() {
   winMessage.textContent = "O Wins!";
+  addFlashAnimation();
+}
+
+function addFlashAnimation() {
+  winMessage.classList.add("flash");
+}
+
+function removeFlashAnimation() {
+  winMessage.classList.remove("flash");
 }
 
 // EVENT LISTENERS:
@@ -144,12 +155,16 @@ restartBtn.addEventListener("click", resetGame);
 // EXTRA FEATURES:
 
 // Illuminate background of winning squares
-// highlight background of hover squares
+// "Intro" - Tic Tac Toe flashes across top of screen
+// Restart button is start button
 // Play 1 (against computer) or 2 player
+
+
 // Allow game customizable options, time limits, board size, game rounds, name & profiles etc  
 // Full game restart (home menu?)
 // Watch computer play itself...
 // CSS animation
+// Piet Mondrian cat
 // Local/session storage
 // Draw counter
 
@@ -169,6 +184,7 @@ restartBtn.addEventListener("click", resetGame);
 // 5. On draw after reset part way through a game, x score increments by 1. This does not seem to happen for o.
 // 6. If there is a win on final play, counter ticks over, but message displayed is "Draw!"
 
+
 // CSS
 // .squares - When adding content to a square, the height was changing until content had been added to squares on each row. The current fix is height set to 33.3333333%.
 // flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
@@ -178,6 +194,6 @@ restartBtn.addEventListener("click", resetGame);
 // addEventListener needs to be applied TO a node. Eg: resetBtn.AddEventListener("eventToListenFor", functionToRun);
 // if not, it will implicitly be applied to all window items.
 
+
 // STYLE NOTES:
-// Inspiration taken from the art world.. The plasticists.. plasticians.. plasticonians?!? 
-// French/german artist
+// Inspired by the work of Piet Mondrian - Dutch, Neoplasticist artist.
