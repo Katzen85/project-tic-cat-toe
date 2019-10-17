@@ -37,6 +37,7 @@ av. Styling: I completed the styling as a secondary item, knowing that the funct
 
 
 3. PROBLEMS:
+
 a. FIXED PROBLEMS:
 Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen (addEvenetListener had not been applied to a node and therefore was automatically applied to window).
 
@@ -55,15 +56,16 @@ If there is a win on final play, counter ticks over, but message displayed is "D
 flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
 
 b. NOT YET FIXED PROBLEMS:
-7. One player - Win message does not diaplay if computer wins. This seems to be a delay issue.
+One player - Win message does not diaplay if computer wins. This seems to be a delay issue.
 
-8. One player - Human player is able to place consecutive x's before the computer has played their turn.
+One player - Human player is able to place consecutive x's before the computer has played their turn.
 
 
 4. CHALLENGES:
 - Writing accurate pseudocode - Accurately thinking of all of the required game logic prior to begging the actual coding.
 - Accidentally writing bugs into the program when adding further features
 - Functions! When not to use them?! (I have about a million)
+
 
 5. Toys!
 - Playing vs (currently stupid) computer!

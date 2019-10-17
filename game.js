@@ -218,8 +218,10 @@ restartBtn.addEventListener("click", resetGame);
 
 // EXTRA FEATURES:
 
+// player 1 and 2 buttons rotate with cat images on other side
 // "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
 // Watch computer play itself... during tic tac toe screen
+
 
 
 
