@@ -2,14 +2,13 @@ console.log("Tic Cat Toe");
 
 /*
 Requirements:
-* Render a game in the browser
-* Switch turns between more than one player
-* Design logic for winning & visually display which player won
-* Include separate HTML / CSS / JavaScript files
-* Stick with KISS (Keep It Simple Stupid) principles
-* Use Javascript for DOM manipulation
+* Done - Render a game in the browser
+* Done - Switch turns between more than one player
+* Done - Design logic for winning & visually display which player won
+* Done - Include separate HTML / CSS / JavaScript files
+* Done - Use Javascript for DOM manipulation
+* Done - Use semantic markup for HTML and CSS (adhere to best practices)
 * Deploy your game online, where the rest of the world can access it
-* Use semantic markup for HTML and CSS (adhere to best practices)
 
 
 Bonus extensions:
@@ -17,13 +16,14 @@ These are for extra credit! DON'T focus on these until you've hit the core requi
 
 Complete - Keep track of multiple game rounds with a win counter
 * Allow game customizable options, time limits, board size, game rounds, name & profiles etc  
-* Allow players to customize their token (X, O, name, picture, avatar etc)
+
 * Get inventive with your styling - research CSS effects, animations to spiff things up
 * **Research** **LocalStorage** or **SessionStorage** to persist data locally to allow games to continue after page refresh or loss of internet connectivity
 * Use timers to display "waiting..." messages while users are waiting to be matched
 * **Research** web audio API and add sound effects to your game
 * Be creative! Bend the rules and give it a twist!
-** If winner or if all squares are "full" game asks player to reset
+* Allow players to customize their token (X, O, name, picture, avatar etc)
+
 
 BRAINSTORM:
  Data, presentation, style,
@@ -142,12 +142,16 @@ restartBtn.addEventListener("click", resetGame);
 
 
 // EXTRA FEATURES:
-// Draw counter
+
 // Illuminate background of winning squares
 // highlight background of hover squares
 // Play 1 (against computer) or 2 player
+// Allow game customizable options, time limits, board size, game rounds, name & profiles etc  
 // Full game restart (home menu?)
 // Watch computer play itself...
+// CSS animation
+// Local/session storage
+// Draw counter
 
 
 // NOTES:
@@ -173,3 +177,7 @@ restartBtn.addEventListener("click", resetGame);
 // LESSONS:
 // addEventListener needs to be applied TO a node. Eg: resetBtn.AddEventListener("eventToListenFor", functionToRun);
 // if not, it will implicitly be applied to all window items.
+
+// STYLE NOTES:
+// Inspiration taken from the art world.. The plasticists.. plasticians.. plasticonians?!? 
+// French/german artist
