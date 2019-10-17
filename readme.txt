@@ -3,9 +3,12 @@
 1. How to Play
 2. Development
 3. Problems
+4. Challenges
+5. Toys!
+6. Lessons
 
 
-HOW TO PLAY:
+1. HOW TO PLAY:
 
 Tic Tac Toe (aka noughts & crosses) is a classic game that dates back to antiquity: According to Wikipedia "Games played on three-in-a-row boards can be traced back to ancient Egypt, where such game boards have been found on roofing tiles dating from around 1300 BCE."
 
@@ -18,23 +21,23 @@ At the end of a game, click the restart button to start a new game. The counters
 Have Fun!
 
 
-DEVELOPMENT:
+2. DEVELOPMENT:
 
-1. Planning:
+a. Planning:
 
-1a: Rough sketch - I started with opening a notebook and drawing a rough sketch of how my game would look. This included the game board, score counters, and buttons, and this process allowed me to visually map out all of the features that would requir styling and game logic. 
+ai: Rough sketch - I started with opening a notebook and drawing a rough sketch of how my game would look. This included the game board, score counters, and buttons, and this process allowed me to visually map out all of the features that would requir styling and game logic. 
 
-1b: Basic structure - I created a basic game board with html and some css, simply to translate my sketch to screen and give me a basic visual model. There was no styling at this point, simply boxes making up the board and score counters, and basic buttons. 
+aii: Basic structure - I created a basic game board with html and some css, simply to translate my sketch to screen and give me a basic visual model. There was no styling at this point, simply boxes making up the board and score counters, and basic buttons. 
 
-1c: Pseudo-code: I then started writing the pseudo code for the game logic. I didn't know where to start and so started with what intuitivelly came to mind - Creating x's and o'x on the board. This process inevitably brought to mind other aspects of would be required in the logic, and I continued this process until I had what I thought was a somewhat comprehensive map of what logic would be required in order to create a functional game. 
+aiii: Pseudo-code: I then started writing the pseudo code for the game logic. I didn't know where to start and so started with what intuitivelly came to mind - Creating x's and o'x on the board. This process inevitably brought to mind other aspects of would be required in the logic, and I continued this process until I had what I thought was a somewhat comprehensive map of what logic would be required in order to create a functional game. 
 
-2. Writing The Game Logic: This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
+aiv. Writing The Game Logic: This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
 
-3. Styling: I completed the styling as a secondary item, knowing that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). 
+av. Styling: I completed the styling as a secondary item, knowing that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). 
 
 
-PROBLEMS:
-FIXED:
+3. PROBLEMS:
+a. FIXED PROBLEMS:
 Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen (addEvenetListener had not been applied to a node and therefore was automatically applied to window).
 
 twoPlayerEventHandler function - First click produces o, not x when condition is set to lastPlayed === [] (for first play). Have used == undefined to get around this.
@@ -51,25 +54,21 @@ If there is a win on final play, counter ticks over, but message displayed is "D
 
 flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
 
-
-NOT YET FIXED:
+b. NOT YET FIXED PROBLEMS:
 7. One player - Win message does not diaplay if computer wins. This seems to be a delay issue.
 
 8. One player - Human player is able to place consecutive x's before the computer has played their turn.
 
 
-CHALLENGES:
+4. CHALLENGES:
 - Writing accurate pseudocode - Accurately thinking of all of the required game logic prior to begging the actual coding.
 - Accidentally writing bugs into the program when adding further features
 - Functions! When not to use them?! (I have about a million)
 
-Toys!
+5. Toys!
 - Playing vs (currently stupid) computer!
 
 
-LESSONS:
-addEventListener needs to be applied TO a node. Eg: resetBtn.AddEventListener("eventToListenFor", functionToRun);
-if not, it will implicitly be applied to all window items.
+6. LESSONS:
 
 Naming things is the holy grail of good coding. 
-
