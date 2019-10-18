@@ -107,6 +107,10 @@ Javascript
 
   One player - Human player is able to place consecutive x's before the computer has played their turn.
 
+  Page load - The "introBot" plays effectively, however in the case of a draw or win the board clears prior to the final piece being seen on the board.
+
+  
+
 # H2 4. CHALLENGES:
 
 
