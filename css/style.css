@@ -26,7 +26,7 @@ body {
 
 .intro-message {
   height: 100px;
-  flex-grow: 1;
+  width: 33.33%;
 }
 
 .tic {
@@ -193,4 +193,10 @@ button:hover {
   background-image: url("images/two-players.png");
   background-repeat: no-repeat;
   color: transparent;
+}
+
+.flash-animation {
+  animation-delay: 3s;
+  animation-duration: 2s;
+  
 }

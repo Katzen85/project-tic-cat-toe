@@ -70,7 +70,7 @@ Fixed - css - Gap appeared between game board border & border of bottom row of b
 - Writing accurate pseudocode - Accurately thinking of all of the required game logic prior to begging the actual coding.
 - Accidentally writing bugs into the program when adding further features
 - Functions! When not to use them?! (I have about a million)
-
+- Creating multiple intervals that need to be in sync.
 
 5. Toys!
 - Playing vs (currently stupid) computer!

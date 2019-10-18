@@ -10,8 +10,11 @@ var tacBox = document.querySelector(".tac");
 var toeBox = document.querySelector(".toe");
 var winMessage = document.querySelector(".tac");
 var lastPlayed = [];
-var gameActive = true;
-var stopTimerID;
+var gameActive = false;
+var stopTicTimerID;
+var stopTacTimerID;
+var stopToeTimerID;
+var stopIntroAnimationID;
 
 
 // FUNCTIONS
@@ -65,14 +68,6 @@ function computerPlayerX() {
   }
 }
 
-function computerVsComputer() {
-  
-  if (gameActive) {
-    setInterval(computerPlayerX, 1000);
-    setInterval(computerPlayerO, 2000);
-  }
-}
-
 function placeX() {
 
   if (event.target.textContent == "") {
@@ -118,7 +113,8 @@ function checkForWinner() {
   });
 }
 
-function addTwoPlayerEventListeners() {
+function addTwoPlayerEventListeners(event) {
+  gameActive = true;
   gameBoardSquares.forEach((square) => square.removeEventListener("click", onePlayerEventHandler))
   gameBoardSquares.forEach((square) => square.addEventListener("click", twoPlayerEventHandler));
   addFlipAnimation();
@@ -130,6 +126,7 @@ function addTwoPlayerEventListeners() {
 }
 
 function addOnePlayerEventListeners(event) {
+  gameActive = true;
   gameBoardSquares.forEach((square) => square.removeEventListener("click", twoPlayerEventHandler));
   gameBoardSquares.forEach((square) => square.addEventListener("click", onePlayerEventHandler));
   addFlipAnimation();
@@ -185,6 +182,10 @@ function removeFlashAnimation() {
   winMessage.classList.remove("flash");
 }
 
+function addFlashToIntro() {
+
+}
+
 
 // EVENT LISTENERS:
 onePlayerBtn.addEventListener("click", addOnePlayerEventListeners);
@@ -192,13 +193,19 @@ twoPlayerBtn.addEventListener("click", addTwoPlayerEventListeners);
 restartBtn.addEventListener("click", resetGame);
 
 
-// FUNCTION CALLS:
-// computerVsComputer();
+// WORKSHOP: 
+
+function computerVsComputer() {
+  
+  if (gameActive) {
+    setInterval(computerPlayerX, 1000);
+    setInterval(computerPlayerO, 2000);
+  }
+}
 
 
 // EXTRA FEATURES:
 
-// Animation for player 1 & 2 buttons - flip
 // "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
 // Watch computer play itself... during tic tac toe screen
 
