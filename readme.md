@@ -1,4 +1,4 @@
-# H1 TIC TAC TOE
+# TIC TAC TOE
 
 
   Click here to play: https://katzen85.github.io/project-tic-cat-toe/](https://katzen85.github.io/project-tic-cat-toe/
@@ -12,7 +12,7 @@
 
 ---
 
-# H2 1. HOW TO PLAY:
+## 1. HOW TO PLAY:
 
 
     Tic Tac Toe (aka noughts & crosses) is a classic game that dates back to antiquity: According to Wikipedia "Games played on three-in-a-row boards can be traced back to ancient Egypt, where such game boards have been found on roofing tiles dating from around 1300 BCE."
@@ -34,9 +34,9 @@
 ---
 
 
-# H2 2. DEVELOPMENT
+## 2. DEVELOPMENT
 
-# H3 Technologies Used:
+### Technologies Used:
 
 
 
@@ -44,7 +44,7 @@ Html
 CSS
 Javascript
 
-  # H3 Planning:
+  ### Planning:
 
 
   i: Rough sketch - I started with opening a notebook and drawing a rough sketch of how my game would look. This included the game board, score counters, and buttons, and this process allowed me to visually map out all of the features that would requir styling and game logic.
@@ -56,21 +56,21 @@ Javascript
   iii: Pseudo-code: I then started writing the pseudo code for the game logic. I didn't know where to start and so started with what intuitivelly came to mind - Creating x's and o'x on the board. This process inevitably brought to mind other aspects of would be required in the logic, and I continued this process until I had what I thought was a somewhat comprehensive map of what logic would be required in order to create a functional game.
 
 
-  # H3 Writing The Game Logic:** 
+  ### Writing The Game Logic:** 
 
 
   This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
 
 
-  # H3 Styling:
+  ### Styling:
 
 
   I completed the styling as a secondary item, suspecting that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). Follow the link to learn more: [https://en.wikipedia.org/wiki/Piet_Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian)
 
 
-# H2 3. PROBLEMS:
+## 3. PROBLEMS:
 
-# H3 a. FIXED PROBLEMS:
+### a. FIXED PROBLEMS:
 
 
   Clicking outside of the board results in the board disappearing and an x being placed in the center of the screen (addEvenetListener had not been applied to a node and therefore was automatically applied to window).
@@ -99,7 +99,7 @@ Javascript
 
   Fixed - css - Gap appeared between game board border & border of bottom row of boxes when changing button height from 150 to 300px. Changed game-board border from 400 to 395px.
 
-# H3 b. PROBLEMS NOT YET SOLVED:
+### b. PROBLEMS NOT YET SOLVED:
 
 
   One player mode - Win message does not display on the initial win if computer wins. This seems to be an order of execution issue.
@@ -109,9 +109,9 @@ Javascript
 
   Page load - The "introBot" plays effectively, however in the case of a draw or win the board clears prior to the final piece being seen on the board.
 
-  
 
-# H2 4. CHALLENGES:
+
+## 4. CHALLENGES:
 
 
 
@@ -119,7 +119,7 @@ Javascript
 *   Accidentally writing bugs into the program when adding further features.
 *   Adding more features later on - Seems to very easily create LOTS of problems!
 
-# H2 5. TOYS! (Features)
+## 5. TOYS! (Features)
 
 
 
@@ -127,7 +127,7 @@ Javascript
 *   The cats! Love the cats
 *   Very happy with the styling. Think this is pretty on point.
 
-# H2 6. LESSONS:
+## 6. LESSONS:
 
 
 
