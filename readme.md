@@ -1,48 +1,16 @@
-<!----- Conversion time: 0.689 seconds.
-
-
-Using this Markdown file:
-
-1. Cut and paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β17
-* Thu Oct 17 2019 22:59:00 GMT-0700 (PDT)
-* Source doc: https://docs.google.com/open?id=1knrUX0JBJnqEA3O7CyGR-WRitAqEIeoZb8PzYmxT2aI
------>
-
-
 **TIC TAC TOE**
 
 
-    Click here to play: [https://katzen85.github.io/project-tic-cat-toe/](https://katzen85.github.io/project-tic-cat-toe/)
-
+    Click here to play: https://katzen85.github.io/project-tic-cat-toe/](https://katzen85.github.io/project-tic-cat-toe/
 
     1. How to Play
-
-
     2. Development
-
-
     3. Problems
-
-
     4. Challenges
-
-
     5. Toys!
-
-
     6. Lessons
 
-
-
 ---
-
 
 **1. HOW TO PLAY:**
 
