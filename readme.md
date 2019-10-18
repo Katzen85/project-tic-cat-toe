@@ -57,9 +57,11 @@ If there is a win on final play, counter ticks over, but message displayed is "D
 flex-basis is set to 30%. Setting it to 33% results in the squares wrapping to 2 per row rather than 3, and extending beyond the bottom border of the board.
 
 b. NOT YET FIXED PROBLEMS:
-One player - Win message does not diaplay if computer wins. This seems to be a delay issue.
+One player - Win message does not diaplay if computer wins. This seems to be an order of execution issue.
 
 One player - Human player is able to place consecutive x's before the computer has played their turn.
+
+Fixed - css - Gap appeared between game board border & border of bottom row of boxes when changing button height from 150 to 300px. Changed game-board border from 400 to 395px.
 
 
 4. CHALLENGES:
