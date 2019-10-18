@@ -153,6 +153,8 @@ function checkForDraw() {
 function resetGame() {
   gameBoardSquares.forEach((square) => square.textContent = "");
   winMessage.textContent = "";
+  ticBox.textContent = "";
+  toeBox.textContent = "";
   removeFlashAnimation();
   lastPlayed = [];
   gameActive = true;
@@ -291,10 +293,6 @@ function addOrRemoveTic() {
     ticBox.textContent = "";
   }
 }
-
-
-
-setTicIntervalTimer();
 
 
 // EXTRA FEATURES TO BE ADDED:
