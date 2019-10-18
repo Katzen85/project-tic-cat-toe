@@ -27,16 +27,15 @@ Have Fun!
 2. DEVELOPMENT:
 
 a. Planning:
-
 ai: Rough sketch - I started with opening a notebook and drawing a rough sketch of how my game would look. This included the game board, score counters, and buttons, and this process allowed me to visually map out all of the features that would requir styling and game logic. 
 
 aii: Basic structure - I created a basic game board with html and some css, simply to translate my sketch to screen and give me a basic visual model. There was no styling at this point, simply boxes making up the board and score counters, and basic buttons. 
 
 aiii: Pseudo-code: I then started writing the pseudo code for the game logic. I didn't know where to start and so started with what intuitivelly came to mind - Creating x's and o'x on the board. This process inevitably brought to mind other aspects of would be required in the logic, and I continued this process until I had what I thought was a somewhat comprehensive map of what logic would be required in order to create a functional game. 
 
-aiv. Writing The Game Logic: This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
+b. Writing The Game Logic: This process followed on directly from the pseudo-code. I simply started back at the top and started translating the preudo-code I had written into working logic.
 
-av. Styling: I completed the styling as a secondary item, suspecting that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). Follow the link to learn more: https://en.wikipedia.org/wiki/Piet_Mondrian
+c. Styling: I completed the styling as a secondary item, suspecting that the functionality of the game would be more of a challenge and likely require significantly more time. The style of the game is inspired by the artist Piet Mondrian, one of the pioneers of 20th century Abstract Art. He developed a "non-representational" form of art known as "Neoplasticism", making use of only the three primary colours (red, blue, yellow) and two primary directions (vertical & horizontal). Follow the link to learn more: https://en.wikipedia.org/wiki/Piet_Mondrian
 
 
 3. PROBLEMS:
@@ -69,8 +68,10 @@ One player - Human player is able to place consecutive x's before the computer h
 4. CHALLENGES:
 - Writing accurate pseudocode - Accurately thinking of all of the required game logic prior to begging the actual coding.
 - Accidentally writing bugs into the program when adding further features
-- Functions! When not to use them?! (I have about a million)
+- Adding more features later on - Seems to very easily create LOTS of problems!
 - Creating multiple intervals that need to be in sync.
+
+
 
 5. Toys!
 - Playing vs (currently stupid) computer!

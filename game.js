@@ -22,7 +22,7 @@ function onePlayerEventHandler(event) {
   
   if (gameActive) {
     placeX();
-    setTimeout(computerPlayerO, 1000);
+    setTimeout(oBot, 900);
     checkForDraw();
     checkForWinner();
   }
@@ -42,7 +42,7 @@ function twoPlayerEventHandler(event) {
   }  
 }
 
-function computerPlayerO() {
+function oBot() {
   var randomNum = Math.floor(Math.random() * 9);
 
   if (gameActive) {
@@ -50,12 +50,12 @@ function computerPlayerO() {
       gameBoardSquares[randomNum].textContent = "o";
       lastPlayed.unshift("o");
     } else {
-      computerPlayerO();
+      oBot();
     }
   }
 }
 
-function computerPlayerX() {
+function xBot() {
   var randomNum = Math.floor(Math.random() * 9);
 
   if (gameActive) {
@@ -63,7 +63,7 @@ function computerPlayerX() {
       gameBoardSquares[randomNum].textContent = "x";
       lastPlayed.unshift("x");
     } else {
-      computerPlayerX();
+      xBot();
     }
   }
 }
@@ -113,7 +113,7 @@ function checkForWinner() {
   });
 }
 
-function addTwoPlayerEventListeners(event) {
+function launchTwoPlayerGame(event) {
   gameActive = true;
   gameBoardSquares.forEach((square) => square.removeEventListener("click", onePlayerEventHandler))
   gameBoardSquares.forEach((square) => square.addEventListener("click", twoPlayerEventHandler));
@@ -123,9 +123,12 @@ function addTwoPlayerEventListeners(event) {
   twoPlayerBtn.classList.add("two-player-selected");
   xScoreCounter.textContent = 0;
   oScoreCounter.textContent = 0;
+  ticBox.textContent = "";
+  tacBox.textContent = "";
+  toeBox.textContent = "";
 }
 
-function addOnePlayerEventListeners(event) {
+function launchOnePlayerGame(event) {
   gameActive = true;
   gameBoardSquares.forEach((square) => square.removeEventListener("click", twoPlayerEventHandler));
   gameBoardSquares.forEach((square) => square.addEventListener("click", onePlayerEventHandler));
@@ -135,6 +138,9 @@ function addOnePlayerEventListeners(event) {
   onePlayerBtn.classList.add("one-player-selected");
   xScoreCounter.textContent = 0;
   oScoreCounter.textContent = 0;
+  ticBox.textContent = "";
+  tacBox.textContent = "";
+  toeBox.textContent = "";
 }
 
 function checkForDraw() {
@@ -188,59 +194,26 @@ function addFlashToIntro() {
 
 
 // EVENT LISTENERS:
-onePlayerBtn.addEventListener("click", addOnePlayerEventListeners);
-twoPlayerBtn.addEventListener("click", addTwoPlayerEventListeners);
+onePlayerBtn.addEventListener("click", launchOnePlayerGame);
+twoPlayerBtn.addEventListener("click", launchTwoPlayerGame);
 restartBtn.addEventListener("click", resetGame);
 
 
-// WORKSHOP: 
+// --------------------------------------------------------//
+
+
+// CURRENTLY IN WORKSHOP: 
 
 function computerVsComputer() {
   
   if (gameActive) {
-    setInterval(computerPlayerX, 1000);
-    setInterval(computerPlayerO, 2000);
+    setInterval(xBot, 1000);
+    setInterval(oBot, 2000);
   }
 }
 
 
-// EXTRA FEATURES:
-
+// EXTRA FEATURES TO BE ADDED:
 // "Intro"/ intro screen - Tic Tac Toe / Select Player flashes across top of screen
 // Watch computer play itself... during tic tac toe screen
-
-/*
-EXTRAS
-* Get inventive with your styling - research CSS effects, animations to spiff things up
-* **Research** **LocalStorage** or **SessionStorage** to persist data locally to allow games to continue after page refresh or loss of internet connectivity
-* Use timers to display "waiting..." messages while users are waiting to be matched
-* **Research** web audio API and add sound effects to your game
-* Be creative! Bend the rules and give it a twist!
-* Allow players to customize their token (X, O, name, picture, avatar etc)
-*/
-
-
-// Illuminate background of winning squares
-// Options menu
-
-
-// Allow game customizable options, time limits, board size, game rounds, name & profiles etc  
-// Full game restart (home menu?)
-
-// CSS animation
-// Piet Mondrian cat
-// Local/session storage
-// Draw counter
-
-
-// NOTES:
-
-
-// PROBLEMS:
-// 7. One player - Win message does not display if computer wins. This seems to be a delay issue.
-
-
-// CSS
-
-
-// LESSONS:
+// Board colours move to background of winning squares
