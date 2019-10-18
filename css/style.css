@@ -194,9 +194,3 @@ button:hover {
   background-repeat: no-repeat;
   color: transparent;
 }
-
-.flash-animation {
-  animation-delay: 3s;
-  animation-duration: 2s;
-  
-}
