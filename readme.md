@@ -75,8 +75,11 @@ One player - Human player is able to place consecutive x's before the computer h
 
 5. Toys!
 - Playing vs (currently stupid) computer!
+- The cats! Love the cats
 
 
 6. LESSONS:
 
-Naming things is the holy grail of good coding. 
+- Naming things is the holy grail of good coding. 
+- Thorough pseudo-code is paramount
+- Adding features not considered in the original pseudo-code can cause nightmares
