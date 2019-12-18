@@ -108,6 +108,7 @@ body {
 
 button {
   border: none;
+  background-color: transparent;
   font-family: Teko;
   width: 133px;
   height: 133px;
