@@ -192,79 +192,79 @@ function removeFlashAnimation() {
 
 
 // INTRO BOT FUNCTIONS:
-function startIntroBot() {
+// function startIntroBot() {
 
-  if (!gameActive) {
-    stopIntroBotID = setInterval(introBot, 1500);
-  }
-}
+//   if (!gameActive) {
+//     stopIntroBotID = setInterval(introBot, 1500);
+//   }
+// }
 
-function introBot() {
+// function introBot() {
 
-  var randomNum = Math.floor(Math.random() * 9);
+//   var randomNum = Math.floor(Math.random() * 9);
 
-  if (gameBoardSquares[randomNum].textContent == "") {
+//   if (gameBoardSquares[randomNum].textContent == "") {
 
-    if (lastPlayed[0] == undefined || lastPlayed[0] == "o") {
-      gameBoardSquares[randomNum].textContent = "x";
-      lastPlayed.unshift("x");
+//     if (lastPlayed[0] == undefined || lastPlayed[0] == "o") {
+//       gameBoardSquares[randomNum].textContent = "x";
+//       lastPlayed.unshift("x");
 
-    } else {
-      gameBoardSquares[randomNum].textContent = "o";
-      lastPlayed.unshift("o");
-    }
+//     } else {
+//       gameBoardSquares[randomNum].textContent = "o";
+//       lastPlayed.unshift("o");
+//     }
 
-  } else {
-    introBot();
-  }
-  checkIntroGameForWin();
-  checkIntroGameForDraw();
-}
+//   } else {
+//     introBot();
+//   }
+//   checkIntroGameForWin();
+//   checkIntroGameForDraw();
+// }
 
-function resetIntroBoard() {
-  gameBoardSquares.forEach((square) => square.textContent = "");
-}
+// function resetIntroBoard() {
+//   gameBoardSquares.forEach((square) => square.textContent = "");
+// }
 
-function stopIntroBot() {
-  clearInterval(stopIntroBotID);
-}
+// function stopIntroBot() {
+//   clearInterval(stopIntroBotID);
+// }
 
-function checkIntroGameForWin() {
+// function checkIntroGameForWin() {
 
-  var winningCombinations = {
-    rowTop: [gameBoardSquares[0].textContent, gameBoardSquares[1].textContent, gameBoardSquares[2].textContent],
-    rowMiddle: [gameBoardSquares[3].textContent, gameBoardSquares[4].textContent, gameBoardSquares[5].textContent],
-    rowBottom: [gameBoardSquares[6].textContent, gameBoardSquares[7].textContent, gameBoardSquares[8].textContent],
-    columnLeft: [gameBoardSquares[0].textContent, gameBoardSquares[3].textContent, gameBoardSquares[6].textContent],
-    columnMiddle: [gameBoardSquares[1].textContent, gameBoardSquares[4].textContent, gameBoardSquares[7].textContent],
-    columnRight: [gameBoardSquares[2].textContent, gameBoardSquares[5].textContent, gameBoardSquares[8].textContent],
-    diagonalForward: [gameBoardSquares[6].textContent, gameBoardSquares[4].textContent, gameBoardSquares[2].textContent],
-    diagonalBackward: [gameBoardSquares[0].textContent, gameBoardSquares[4].textContent, gameBoardSquares[8].textContent]
-  }
+//   var winningCombinations = {
+//     rowTop: [gameBoardSquares[0].textContent, gameBoardSquares[1].textContent, gameBoardSquares[2].textContent],
+//     rowMiddle: [gameBoardSquares[3].textContent, gameBoardSquares[4].textContent, gameBoardSquares[5].textContent],
+//     rowBottom: [gameBoardSquares[6].textContent, gameBoardSquares[7].textContent, gameBoardSquares[8].textContent],
+//     columnLeft: [gameBoardSquares[0].textContent, gameBoardSquares[3].textContent, gameBoardSquares[6].textContent],
+//     columnMiddle: [gameBoardSquares[1].textContent, gameBoardSquares[4].textContent, gameBoardSquares[7].textContent],
+//     columnRight: [gameBoardSquares[2].textContent, gameBoardSquares[5].textContent, gameBoardSquares[8].textContent],
+//     diagonalForward: [gameBoardSquares[6].textContent, gameBoardSquares[4].textContent, gameBoardSquares[2].textContent],
+//     diagonalBackward: [gameBoardSquares[0].textContent, gameBoardSquares[4].textContent, gameBoardSquares[8].textContent]
+//   }
 
-  var winningCombinationKeys = Object.keys(winningCombinations);
+//   var winningCombinationKeys = Object.keys(winningCombinations);
 
-  winningCombinationKeys.forEach((key) => {
-    if (winningCombinations[key].every((element) => element == "x")) {
-      stopIntroBot();
-      resetIntroBoard();
-      startIntroBot();
-    } else if (winningCombinations[key].every((element) => element == "o")) {
-      stopIntroBot();
-      resetIntroBoard();
-      startIntroBot();
-    }
-  });
-}
+//   winningCombinationKeys.forEach((key) => {
+//     if (winningCombinations[key].every((element) => element == "x")) {
+//       stopIntroBot();
+//       resetIntroBoard();
+//       startIntroBot();
+//     } else if (winningCombinations[key].every((element) => element == "o")) {
+//       stopIntroBot();
+//       resetIntroBoard();
+//       startIntroBot();
+//     }
+//   });
+// }
 
-function checkIntroGameForDraw() {
-  var boardSquares = Array.from(gameBoardSquares);
-  if (boardSquares.every((square) => square.textContent != "")) {
-    stopIntroBot();
-    resetIntroBoard();
-    startIntroBot();
-  }
-}
+// function checkIntroGameForDraw() {
+//   var boardSquares = Array.from(gameBoardSquares);
+//   if (boardSquares.every((square) => square.textContent != "")) {
+//     stopIntroBot();
+//     resetIntroBoard();
+//     startIntroBot();
+//   }
+// }
 
 
 // EVENT LISTENERS:
